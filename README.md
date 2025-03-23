@@ -3,7 +3,7 @@
 <img align="right" width="125" src="assets/goose_logo.png">
 
 [![Goose
-CI](https://github.com/pressly/goose/actions/workflows/ci.yaml/badge.svg)](https://github.com/pressly/goose/actions/workflows/ci.yaml)
+CI](https://github.com/TheAmirhosssein/goose/actions/workflows/ci.yaml/badge.svg)](https://github.com/TheAmirhosssein/goose/actions/workflows/ci.yaml)
 [![Go
 Reference](https://pkg.go.dev/badge/github.com/TheAmirhosssein/goose/v3.svg)](https://pkg.go.dev/github.com/TheAmirhosssein/goose/v3)
 [![Go Report
@@ -50,7 +50,7 @@ Formulae](https://formulae.brew.sh/formula/goose#default):
 brew install goose
 ```
 
-See [installation documentation](https://pressly.github.io/goose/installation/) for more details.
+See [installation documentation](https://TheAmirhosssein.github.io/goose/installation/) for more details.
 
 # Usage
 
@@ -261,7 +261,7 @@ Loading from `.env` files is enabled by default. To disable this feature, set th
 If you want to load from a specific file, set the `-env` flag to the file path.
 
 For more details about environment variables, see the [official documentation on environment
-variables](https://pressly.github.io/goose/documentation/environment-variables/).
+variables](https://TheAmirhosssein.github.io/goose/documentation/environment-variables/).
 
 # Migrations
 
@@ -422,7 +422,7 @@ structure.
 ## Go Migrations
 
 1. Create your own goose binary, see [example](./examples/go-migrations)
-2. Import `github.com/pressly/goose`
+2. Import `github.com/TheAmirhosssein/goose`
 3. Register your migration functions
 4. Run goose command, ie. `goose.Up(db *sql.DB, dir string)`
 
@@ -465,7 +465,7 @@ not end with `*_test.go`.
 # Hybrid Versioning
 
 Please, read the [versioning
-problem](https://github.com/pressly/goose/issues/63#issuecomment-428681694) first.
+problem](https://github.com/TheAmirhosssein/goose/issues/63#issuecomment-428681694) first.
 
 By default, if you attempt to apply missing (out-of-order) migrations `goose` will raise an error.
 However, If you want to apply these missing migrations pass goose the `-allow-missing` flag, or if

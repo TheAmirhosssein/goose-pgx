@@ -1,6 +1,6 @@
 # Integration tests
 
-This directory contains integration tests for the [pressly/goose/v3][goose_module] Go module. An
+This directory contains integration tests for the [TheAmirhosssein/goose/v3][goose_module] Go module. An
 integration test is a test that runs against a real database (docker container) and exercises the
 same driver used by the CLI.
 

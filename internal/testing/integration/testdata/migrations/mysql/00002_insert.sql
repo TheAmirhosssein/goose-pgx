@@ -9,12 +9,12 @@ VALUES
 INSERT INTO owners (owner_name, owner_type)
 VALUES
   ('james', 'user'),
-  ('pressly', 'organization');
+  ('TheAmirhosssein', 'organization');
 
 INSERT INTO repos (repo_full_name, repo_owner_id)
 VALUES
   ('james/rover', (SELECT owner_id FROM owners WHERE owner_name = 'james')),
-  ('pressly/goose', (SELECT owner_id FROM owners WHERE owner_name = 'pressly'));
+  ('TheAmirhosssein/goose', (SELECT owner_id FROM owners WHERE owner_name = 'TheAmirhosssein'));
 
 -- +goose Down
 -- +goose StatementBegin

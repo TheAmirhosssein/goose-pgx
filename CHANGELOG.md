@@ -117,10 +117,10 @@ be used to check for pending migrations without blocking or being blocked by oth
   acquiring a lock with `SessionLocker` (if enabled). This addresses an edge case in
   Kubernetes-style deployments where newer pods with long-running migrations prevent older pods -
   which have all known migrations applied - from starting up due to an advisory lock. For more
-  details, refer to https://github.com/pressly/goose/pull/507#discussion_r1266498077 and #751.
+  details, refer to https://github.com/TheAmirhosssein/goose/pull/507#discussion_r1266498077 and #751.
 - Move integration tests to `./internal/testing` and make it a separate Go module. This will allow
   us to have a cleaner top-level go.mod file and avoid imports unrelated to the goose project. See
-  [integration/README.md](https://github.com/pressly/goose/blob/d0641b5bfb3bd5d38d95fe7a63d7ddf2d282234d/internal/testing/integration/README.md)
+  [integration/README.md](https://github.com/TheAmirhosssein/goose/blob/d0641b5bfb3bd5d38d95fe7a63d7ddf2d282234d/internal/testing/integration/README.md)
   for more details. This shouldn't affect users of the goose library.
 
 ## [v3.19.2] - 2024-03-13
@@ -194,7 +194,7 @@ be used to check for pending migrations without blocking or being blocked by oth
 
 🎉 Read more about this new feature here:
 
-https://pressly.github.io/goose/blog/2023/goose-provider/
+https://TheAmirhosssein.github.io/goose/blog/2023/goose-provider/
 
 The motivation behind the Provider was simple - to reduce global state and make goose easier to
 consume as an imported package.
@@ -263,25 +263,25 @@ Here's a quick summary:
 - Add new `context.Context`-aware functions and methods, for both sql and go migrations.
 - Return error when no migration files found or dir is not a directory.
 
-[Unreleased]: https://github.com/pressly/goose/compare/v3.24.1...HEAD
-[v3.24.1]: https://github.com/pressly/goose/compare/v3.24.0...v3.24.1
-[v3.24.0]: https://github.com/pressly/goose/compare/v3.23.1...v3.24.0
-[v3.23.1]: https://github.com/pressly/goose/compare/v3.23.0...v3.23.1
-[v3.23.0]: https://github.com/pressly/goose/compare/v3.22.1...v3.23.0
-[v3.22.1]: https://github.com/pressly/goose/compare/v3.22.0...v3.22.1
-[v3.22.0]: https://github.com/pressly/goose/compare/v3.21.1...v3.22.0
-[v3.21.1]: https://github.com/pressly/goose/compare/v3.20.0...v3.21.1
-[v3.21.0]: https://github.com/pressly/goose/compare/v3.20.0...v3.21.0
-[v3.20.0]: https://github.com/pressly/goose/compare/v3.19.2...v3.20.0
-[v3.19.2]: https://github.com/pressly/goose/compare/v3.19.1...v3.19.2
-[v3.19.1]: https://github.com/pressly/goose/compare/v3.19.0...v3.19.1
-[v3.19.0]: https://github.com/pressly/goose/compare/v3.18.0...v3.19.0
-[v3.18.0]: https://github.com/pressly/goose/compare/v3.17.0...v3.18.0
-[v3.17.0]: https://github.com/pressly/goose/compare/v3.16.0...v3.17.0
-[v3.16.0]: https://github.com/pressly/goose/compare/v3.15.1...v3.16.0
-[v3.15.1]: https://github.com/pressly/goose/compare/v3.15.0...v3.15.1
-[v3.15.0]: https://github.com/pressly/goose/compare/v3.14.0...v3.15.0
-[v3.14.0]: https://github.com/pressly/goose/compare/v3.13.4...v3.14.0
-[v3.13.4]: https://github.com/pressly/goose/compare/v3.13.1...v3.13.4
-[v3.13.1]: https://github.com/pressly/goose/compare/v3.13.0...v3.13.1
-[v3.13.0]: https://github.com/pressly/goose/releases/tag/v3.13.0
+[Unreleased]: https://github.com/TheAmirhosssein/goose/compare/v3.24.1...HEAD
+[v3.24.1]: https://github.com/TheAmirhosssein/goose/compare/v3.24.0...v3.24.1
+[v3.24.0]: https://github.com/TheAmirhosssein/goose/compare/v3.23.1...v3.24.0
+[v3.23.1]: https://github.com/TheAmirhosssein/goose/compare/v3.23.0...v3.23.1
+[v3.23.0]: https://github.com/TheAmirhosssein/goose/compare/v3.22.1...v3.23.0
+[v3.22.1]: https://github.com/TheAmirhosssein/goose/compare/v3.22.0...v3.22.1
+[v3.22.0]: https://github.com/TheAmirhosssein/goose/compare/v3.21.1...v3.22.0
+[v3.21.1]: https://github.com/TheAmirhosssein/goose/compare/v3.20.0...v3.21.1
+[v3.21.0]: https://github.com/TheAmirhosssein/goose/compare/v3.20.0...v3.21.0
+[v3.20.0]: https://github.com/TheAmirhosssein/goose/compare/v3.19.2...v3.20.0
+[v3.19.2]: https://github.com/TheAmirhosssein/goose/compare/v3.19.1...v3.19.2
+[v3.19.1]: https://github.com/TheAmirhosssein/goose/compare/v3.19.0...v3.19.1
+[v3.19.0]: https://github.com/TheAmirhosssein/goose/compare/v3.18.0...v3.19.0
+[v3.18.0]: https://github.com/TheAmirhosssein/goose/compare/v3.17.0...v3.18.0
+[v3.17.0]: https://github.com/TheAmirhosssein/goose/compare/v3.16.0...v3.17.0
+[v3.16.0]: https://github.com/TheAmirhosssein/goose/compare/v3.15.1...v3.16.0
+[v3.15.1]: https://github.com/TheAmirhosssein/goose/compare/v3.15.0...v3.15.1
+[v3.15.0]: https://github.com/TheAmirhosssein/goose/compare/v3.14.0...v3.15.0
+[v3.14.0]: https://github.com/TheAmirhosssein/goose/compare/v3.13.4...v3.14.0
+[v3.13.4]: https://github.com/TheAmirhosssein/goose/compare/v3.13.1...v3.13.4
+[v3.13.1]: https://github.com/TheAmirhosssein/goose/compare/v3.13.0...v3.13.1
+[v3.13.0]: https://github.com/TheAmirhosssein/goose/releases/tag/v3.13.0

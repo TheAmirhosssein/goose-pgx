@@ -5,13 +5,13 @@ VALUES
     ('lucas', 'user'),
     ('space', 'organization'),
     ('james', 'user'),
-    ('pressly', 'organization');
+    ('TheAmirhosssein', 'organization');
 -- +goose StatementEnd
 
 INSERT INTO repos(repo_full_name, repo_owner_id) 
 VALUES 
     ('james/rover', (SELECT owner_id FROM owners WHERE owner_name = 'james')),
-    ('pressly/goose', (SELECT owner_id FROM owners WHERE owner_name = 'pressly'));
+    ('TheAmirhosssein/goose', (SELECT owner_id FROM owners WHERE owner_name = 'TheAmirhosssein'));
 
 -- +goose Down
 -- +goose StatementBegin

@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pressly/goose/v3"
-	_ "github.com/pressly/goose/v3/tests/gomigrations/error/testdata"
+	"github.com/TheAmirhosssein/goose/v3"
+	_ "github.com/TheAmirhossseinhosssein/goose/v3/tests/gomigrations/error/testdata"
 	"github.com/stretchr/testify/require"
 	_ "modernc.org/sqlite"
 )

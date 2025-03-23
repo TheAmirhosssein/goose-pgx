@@ -15,9 +15,9 @@ if [ "$arch" = "aarch64" ]; then
 fi
 
 if [ $# -eq 0 ]; then
-	goose_uri="https://github.com/pressly/goose/releases/latest/download/goose_${os}_${arch}"
+	goose_uri="https://github.com/TheAmirhosssein/goose/releases/latest/download/goose_${os}_${arch}"
 else
-	goose_uri="https://github.com/pressly/goose/releases/download/${1}/goose_${os}_${arch}"
+	goose_uri="https://github.com/TheAmirhosssein/goose/releases/download/${1}/goose_${os}_${arch}"
 fi
 
 goose_install="${GOOSE_INSTALL:-/usr/local}"
