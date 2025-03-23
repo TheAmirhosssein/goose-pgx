@@ -6,20 +6,20 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // Up applies all available migrations.
-func UpPGX(db *pgx.Conn, dir string, opts ...OptionsFunc) error {
+func UpPGX(db *pgxpool.Pool, dir string, opts ...OptionsFunc) error {
 	ctx := context.Background()
 	return UpContextPGX(ctx, db, dir, opts...)
 }
 
-func UpContextPGX(ctx context.Context, db *pgx.Conn, dir string, opts ...OptionsFunc) error {
+func UpContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, opts ...OptionsFunc) error {
 	return UpToContextPGX(ctx, db, dir, maxVersion, opts...)
 }
 
-func UpToContextPGX(ctx context.Context, db *pgx.Conn, dir string, version int64, opts ...OptionsFunc) error {
+func UpToContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, version int64, opts ...OptionsFunc) error {
 	option := &options{}
 	for _, f := range opts {
 		f(option)
@@ -122,7 +122,7 @@ func UpToContextPGX(ctx context.Context, db *pgx.Conn, dir string, version int64
 
 // upToNoVersioning applies up migrations up to, and including, the
 // target version.
-func upToNoVersioningPGX(ctx context.Context, db *pgx.Conn, migrations Migrations, version int64) error {
+func upToNoVersioningPGX(ctx context.Context, db *pgxpool.Pool, migrations Migrations, version int64) error {
 	var finalVersion int64
 	for _, current := range migrations {
 		if current.Version > version {
@@ -139,7 +139,7 @@ func upToNoVersioningPGX(ctx context.Context, db *pgx.Conn, migrations Migration
 }
 
 // listAllDBVersions returns a list of all migrations, ordered ascending.
-func listAllDBVersionsPGX(ctx context.Context, db *pgx.Conn) (Migrations, error) {
+func listAllDBVersionsPGX(ctx context.Context, db *pgxpool.Pool) (Migrations, error) {
 	dbMigrations, err := store.ListMigrationsPGX(ctx, db, TableName())
 	if err != nil {
 		return nil, err

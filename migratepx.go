@@ -4,10 +4,11 @@ import (
 	"context"
 
 	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"go.uber.org/multierr"
 )
 
-func EnsureDBVersionContextPGX(ctx context.Context, db *pgx.Conn) (int64, error) {
+func EnsureDBVersionContextPGX(ctx context.Context, db *pgxpool.Pool) (int64, error) {
 	dbMigrations, err := store.ListMigrationsPGX(ctx, db, TableName())
 	if err != nil {
 		createErr := createVersionTablePGX(ctx, db)
@@ -45,7 +46,7 @@ func EnsureDBVersionContextPGX(ctx context.Context, db *pgx.Conn) (int64, error)
 	return 0, ErrNoNextVersion
 }
 
-func createVersionTablePGX(ctx context.Context, db *pgx.Conn) error {
+func createVersionTablePGX(ctx context.Context, db *pgxpool.Pool) error {
 	txn, err := db.BeginTx(ctx, pgx.TxOptions{})
 	if err != nil {
 		return err
@@ -62,7 +63,7 @@ func createVersionTablePGX(ctx context.Context, db *pgx.Conn) error {
 }
 
 // GetDBVersionContext is an alias for EnsureDBVersion, but returns -1 in error.
-func GetDBVersionContextPGX(ctx context.Context, db *pgx.Conn) (int64, error) {
+func GetDBVersionContextPGX(ctx context.Context, db *pgxpool.Pool) (int64, error) {
 	version, err := EnsureDBVersionContextPGX(ctx, db)
 	if err != nil {
 		return -1, err

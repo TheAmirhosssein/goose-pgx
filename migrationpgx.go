@@ -8,17 +8,18 @@ import (
 
 	"github.com/TheAmirhosssein/goose/v3/internal/sqlparser"
 	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // UpContext runs an up migration.
-func (m *Migration) UpContextPGX(ctx context.Context, db *pgx.Conn) error {
+func (m *Migration) UpContextPGX(ctx context.Context, db *pgxpool.Pool) error {
 	if err := m.runPGX(ctx, db, true); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (m *Migration) runPGX(ctx context.Context, db *pgx.Conn, direction bool) error {
+func (m *Migration) runPGX(ctx context.Context, db *pgxpool.Pool, direction bool) error {
 	switch filepath.Ext(m.Source) {
 	case ".sql":
 		f, err := baseFS.Open(m.Source)
@@ -52,7 +53,7 @@ func (m *Migration) runPGX(ctx context.Context, db *pgx.Conn, direction bool) er
 
 func runSQLMigrationPGX(
 	ctx context.Context,
-	db *pgx.Conn,
+	db *pgxpool.Pool,
 	statements []string,
 	useTx bool,
 	v int64,

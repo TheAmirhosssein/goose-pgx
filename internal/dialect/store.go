@@ -8,6 +8,7 @@ import (
 
 	"github.com/TheAmirhosssein/goose/v3/internal/dialect/dialectquery"
 	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // Store is the interface that wraps the basic methods for a database dialect.
@@ -30,14 +31,14 @@ type Store interface {
 	InsertVersionPGX(ctx context.Context, tx pgx.Tx, tableName string, version int64) error
 	// InsertVersionNoTx inserts a version id into the version table without a transaction.
 	InsertVersionNoTx(ctx context.Context, db *sql.DB, tableName string, version int64) error
-	InsertVersionNoTxPGX(ctx context.Context, db *pgx.Conn, tableName string, version int64) error
+	InsertVersionNoTxPGX(ctx context.Context, db *pgxpool.Pool, tableName string, version int64) error
 
 	// DeleteVersion deletes a version id from the version table within a transaction.
 	DeleteVersion(ctx context.Context, tx *sql.Tx, tableName string, version int64) error
 	DeleteVersionPGX(ctx context.Context, tx pgx.Tx, tableName string, version int64) error
 	// DeleteVersionNoTx deletes a version id from the version table without a transaction.
 	DeleteVersionNoTx(ctx context.Context, db *sql.DB, tableName string, version int64) error
-	DeleteVersionNoTxPGX(ctx context.Context, db *pgx.Conn, tableName string, version int64) error
+	DeleteVersionNoTxPGX(ctx context.Context, db *pgxpool.Pool, tableName string, version int64) error
 
 	// GetMigrationRow retrieves a single migration by version id.
 	//
@@ -49,7 +50,7 @@ type Store interface {
 	//
 	// If there are no migrations, an empty slice is returned with no error.
 	ListMigrations(ctx context.Context, db *sql.DB, tableName string) ([]*ListMigrationsResult, error)
-	ListMigrationsPGX(ctx context.Context, db *pgx.Conn, tableName string) ([]*ListMigrationsResult, error)
+	ListMigrationsPGX(ctx context.Context, db *pgxpool.Pool, tableName string) ([]*ListMigrationsResult, error)
 }
 
 // NewStore returns a new Store for the given dialect.
@@ -130,7 +131,7 @@ func (s *store) InsertVersionNoTx(ctx context.Context, db *sql.DB, tableName str
 	return err
 }
 
-func (s *store) InsertVersionNoTxPGX(ctx context.Context, db *pgx.Conn, tableName string, version int64) error {
+func (s *store) InsertVersionNoTxPGX(ctx context.Context, db *pgxpool.Pool, tableName string, version int64) error {
 	q := s.querier.InsertVersion(tableName)
 	_, err := db.Exec(ctx, q, version, true)
 	return err
@@ -154,7 +155,7 @@ func (s *store) DeleteVersionNoTx(ctx context.Context, db *sql.DB, tableName str
 	return err
 }
 
-func (s *store) DeleteVersionNoTxPGX(ctx context.Context, db *pgx.Conn, tableName string, version int64) error {
+func (s *store) DeleteVersionNoTxPGX(ctx context.Context, db *pgxpool.Pool, tableName string, version int64) error {
 	q := s.querier.DeleteVersion(tableName)
 	_, err := db.Exec(ctx, q, version)
 	return err
@@ -205,7 +206,7 @@ func (s *store) ListMigrations(ctx context.Context, db *sql.DB, tableName string
 	return migrations, nil
 }
 
-func (s *store) ListMigrationsPGX(ctx context.Context, db *pgx.Conn, tableName string) ([]*ListMigrationsResult, error) {
+func (s *store) ListMigrationsPGX(ctx context.Context, db *pgxpool.Pool, tableName string) ([]*ListMigrationsResult, error) {
 	q := s.querier.ListMigrations(tableName)
 	rows, err := db.Query(ctx, q)
 	if err != nil {
