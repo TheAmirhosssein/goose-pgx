@@ -74,7 +74,7 @@ func TestLiteBinary(t *testing.T) {
 		require.Contains(t, out, "goose: version "+strconv.Itoa(total))
 	})
 	t.Run("gh_issue_293", func(t *testing.T) {
-		// https://github.com/TheAmirhossseinhosssein/goose/issues/293
+		// https://github.com/TheAmirhosssein/goose/issues/293
 		t.Parallel()
 		dir := t.TempDir()
 		total := countSQLFiles(t, "testdata/migrations")
@@ -97,7 +97,7 @@ func TestLiteBinary(t *testing.T) {
 		}
 	})
 	t.Run("gh_issue_336", func(t *testing.T) {
-		// https://github.com/TheAmirhossseinhosssein/goose/issues/336
+		// https://github.com/TheAmirhosssein/goose/issues/336
 		t.Parallel()
 		dir := t.TempDir()
 		_, err := cli.run("-dir="+dir, "sqlite3", filepath.Join(dir, "sql.db"), "up")

@@ -12,9 +12,9 @@ import (
 	"sync"
 
 	"github.com/TheAmirhosssein/goose/v3/database"
-	"github.com/TheAmirhossseinhosssein/goose/v3/internal/controller"
-	"github.com/TheAmirhossseinhosssein/goose/v3/internal/gooseutil"
-	"github.com/TheAmirhossseinhosssein/goose/v3/internal/sqlparser"
+	"github.com/TheAmirhosssein/goose/v3/internal/controller"
+	"github.com/TheAmirhosssein/goose/v3/internal/gooseutil"
+	"github.com/TheAmirhosssein/goose/v3/internal/sqlparser"
 	"go.uber.org/multierr"
 )
 
@@ -368,7 +368,7 @@ func (p *Provider) up(
 		// implementation is that we can make stronger guarantees about unapplied migrations.
 		//
 		// In cases where users do not use out-of-order migrations, we want to surface an error if
-		// there are older unapplied migrations. See https://github.com/TheAmirhossseinhosssein/goose/issues/761 for
+		// there are older unapplied migrations. See https://github.com/TheAmirhosssein/goose/issues/761 for
 		// more details.
 		//
 		// And in cases where users do use out-of-order migrations, we need to build a list of older

@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/TheAmirhosssein/goose/v3"
-	"github.com/TheAmirhossseinhosssein/goose/v3/database"
+	"github.com/TheAmirhosssein/goose/v3/database"
 )
 
 func init() {

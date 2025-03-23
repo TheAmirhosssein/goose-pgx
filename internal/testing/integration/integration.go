@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/TheAmirhosssein/goose/v3"
-	"github.com/TheAmirhossseinhosssein/goose/v3/database"
+	"github.com/TheAmirhosssein/goose/v3/database"
 	"github.com/stretchr/testify/require"
 )
 

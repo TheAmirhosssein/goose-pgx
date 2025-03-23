@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/TheAmirhosssein/goose/v3/database"
-	"github.com/TheAmirhossseinhosssein/goose/v3/internal/sqlparser"
+	"github.com/TheAmirhosssein/goose/v3/internal/sqlparser"
 	"github.com/sethvargo/go-retry"
 	"go.uber.org/multierr"
 )
@@ -119,8 +119,8 @@ func (p *Provider) runMigrations(
 	// feat(mf): this is where we can (optionally) group multiple migrations to be run in a single
 	// transaction. The default is to apply each migration sequentially on its own. See the
 	// following issues for more details:
-	//  - https://github.com/TheAmirhossseinhosssein/goose/issues/485
-	//  - https://github.com/TheAmirhossseinhosssein/goose/issues/222
+	//  - https://github.com/TheAmirhosssein/goose/issues/485
+	//  - https://github.com/TheAmirhosssein/goose/issues/222
 	//
 	// Be careful, we can't use a single transaction for all migrations because some may be marked
 	// as not using a transaction.

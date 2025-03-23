@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/TheAmirhosssein/goose/v3/database"
-	"github.com/TheAmirhossseinhosssein/goose/v3/lock"
+	"github.com/TheAmirhosssein/goose/v3/lock"
 )
 
 const (

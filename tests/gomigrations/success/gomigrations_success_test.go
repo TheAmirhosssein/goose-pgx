@@ -8,7 +8,7 @@ import (
 	"github.com/TheAmirhosssein/goose/v3"
 	"github.com/stretchr/testify/require"
 
-	_ "github.com/TheAmirhossseinhosssein/goose/v3/tests/gomigrations/success/testdata"
+	_ "github.com/TheAmirhosssein/goose/v3/tests/gomigrations/success/testdata"
 	_ "modernc.org/sqlite"
 )
 

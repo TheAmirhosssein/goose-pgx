@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/TheAmirhosssein/goose/v3"
-	_ "github.com/TheAmirhossseinhosssein/goose/v3/tests/gomigrations/register/testdata"
+	_ "github.com/TheAmirhosssein/goose/v3/tests/gomigrations/register/testdata"
 	"github.com/stretchr/testify/require"
 )
 

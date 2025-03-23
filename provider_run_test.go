@@ -15,7 +15,7 @@ import (
 	"testing/fstest"
 
 	"github.com/TheAmirhosssein/goose/v3"
-	"github.com/TheAmirhossseinhosssein/goose/v3/database"
+	"github.com/TheAmirhosssein/goose/v3/database"
 	"github.com/stretchr/testify/require"
 )
 
@@ -657,8 +657,8 @@ func TestAllowMissing(t *testing.T) {
 		}
 
 		// This behaviour may need to change, see the following issues for more details:
-		//  - https://github.com/TheAmirhossseinhosssein/goose/issues/523
-		//  - https://github.com/TheAmirhossseinhosssein/goose/issues/402
+		//  - https://github.com/TheAmirhosssein/goose/issues/523
+		//  - https://github.com/TheAmirhosssein/goose/issues/402
 
 		testDownAndVersion(6, 6)
 		testDownAndVersion(5, 4) // Ensure the max db version is 5 before down.
