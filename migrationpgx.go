@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/TheAmirhosssein/goose/v3/internal/sqlparser"
 	"github.com/jackc/pgx/v5"
-	"github.com/pressly/goose/v3/internal/sqlparser"
 )
 
 // UpContext runs an up migration.

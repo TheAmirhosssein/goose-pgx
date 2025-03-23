@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/TheAmirhosssein/goose/v3/internal/dialect/dialectquery"
 	"github.com/jackc/pgx/v5"
-	"github.com/pressly/goose/v3/internal/dialect/dialectquery"
 )
 
 // Store is the interface that wraps the basic methods for a database dialect.

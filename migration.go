@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pressly/goose/v3/internal/sqlparser"
+	"github.com/TheAmirhosssein/goose/v3/internal/sqlparser"
 )
 
 // NewGoMigration creates a new Go migration.
@@ -239,7 +239,7 @@ func (m *Migration) run(ctx context.Context, db *sql.DB, direction bool) error {
 
 	case ".go":
 		if !m.Registered {
-			return fmt.Errorf("ERROR %v: failed to run Go migration: Go functions must be registered and built into a custom binary (see https://github.com/pressly/goose/tree/master/examples/go-migrations)", m.Source)
+			return fmt.Errorf("ERROR %v: failed to run Go migration: Go functions must be registered and built into a custom binary (see https://github.com/TheAmirhosssein/goose/tree/master/examples/go-migrations)", m.Source)
 		}
 		start := time.Now()
 		var empty bool

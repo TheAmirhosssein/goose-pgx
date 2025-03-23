@@ -7,7 +7,7 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/pressly/goose/v3"
+	"github.com/TheAmirhosssein/goose/v3"
 	"github.com/stretchr/testify/require"
 	_ "modernc.org/sqlite"
 )
