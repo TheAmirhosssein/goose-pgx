@@ -41,6 +41,47 @@ func DownContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, opts ...O
 	return current.DownContextPGX(ctx, db)
 }
 
+// DownToContext rolls back migrations to a specific version.
+func DownToContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, version int64, opts ...OptionsFunc) error {
+	option := &options{}
+	for _, f := range opts {
+		f(option)
+	}
+	migrations, err := CollectMigrations(dir, minVersion, maxVersion)
+	if err != nil {
+		return err
+	}
+	if option.noVersioning {
+		return downToNoVersioningPGX(ctx, db, migrations, version)
+	}
+
+	for {
+		currentVersion, err := GetDBVersionContextPGX(ctx, db)
+		if err != nil {
+			return err
+		}
+
+		if currentVersion == 0 {
+			log.Printf("goose: no migrations to run. current version: %d", currentVersion)
+			return nil
+		}
+		current, err := migrations.Current(currentVersion)
+		if err != nil {
+			log.Printf("goose: migration file not found for current version (%d), error: %s", currentVersion, err)
+			return err
+		}
+
+		if current.Version <= version {
+			log.Printf("goose: no migrations to run. current version: %d", currentVersion)
+			return nil
+		}
+
+		if err = current.DownContextPGX(ctx, db); err != nil {
+			return err
+		}
+	}
+}
+
 func downToNoVersioningPGX(ctx context.Context, db *pgxpool.Pool, migrations Migrations, version int64) error {
 	var finalVersion int64
 	for i := len(migrations) - 1; i >= 0; i-- {
