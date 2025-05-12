@@ -120,6 +120,11 @@ func UpToContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, version i
 	return nil
 }
 
+func UpByOneContextPGX(ctx context.Context, db *pgxpool.Pool, dir string, opts ...OptionsFunc) error {
+	opts = append(opts, withApplyUpByOne())
+	return UpToContextPGX(ctx, db, dir, maxVersion, opts...)
+}
+
 // upToNoVersioning applies up migrations up to, and including, the
 // target version.
 func upToNoVersioningPGX(ctx context.Context, db *pgxpool.Pool, migrations Migrations, version int64) error {
