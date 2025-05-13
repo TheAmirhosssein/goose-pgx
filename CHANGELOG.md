@@ -7,8 +7,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [v3.24.3]
+
+- Add `GOOSE_TABLE` environment variable -- lower priority than `-table` flag, but higher than the
+  default table name. (#932)
+- Dependency updates
+
+## [v3.24.2]
+
 - Add `TableExists` table existence check for the mysql dialect (#895)
-- Upgrade **minimum Go version to 1.22** (#909)
+- Upgrade **minimum Go version to 1.23**
+- Various dependency updates
 
 ## [v3.24.1]
 
@@ -263,25 +272,27 @@ Here's a quick summary:
 - Add new `context.Context`-aware functions and methods, for both sql and go migrations.
 - Return error when no migration files found or dir is not a directory.
 
-[Unreleased]: https://github.com/TheAmirhosssein/goose/compare/v3.24.1...HEAD
-[v3.24.1]: https://github.com/TheAmirhosssein/goose/compare/v3.24.0...v3.24.1
-[v3.24.0]: https://github.com/TheAmirhosssein/goose/compare/v3.23.1...v3.24.0
-[v3.23.1]: https://github.com/TheAmirhosssein/goose/compare/v3.23.0...v3.23.1
-[v3.23.0]: https://github.com/TheAmirhosssein/goose/compare/v3.22.1...v3.23.0
-[v3.22.1]: https://github.com/TheAmirhosssein/goose/compare/v3.22.0...v3.22.1
-[v3.22.0]: https://github.com/TheAmirhosssein/goose/compare/v3.21.1...v3.22.0
-[v3.21.1]: https://github.com/TheAmirhosssein/goose/compare/v3.20.0...v3.21.1
-[v3.21.0]: https://github.com/TheAmirhosssein/goose/compare/v3.20.0...v3.21.0
-[v3.20.0]: https://github.com/TheAmirhosssein/goose/compare/v3.19.2...v3.20.0
-[v3.19.2]: https://github.com/TheAmirhosssein/goose/compare/v3.19.1...v3.19.2
-[v3.19.1]: https://github.com/TheAmirhosssein/goose/compare/v3.19.0...v3.19.1
-[v3.19.0]: https://github.com/TheAmirhosssein/goose/compare/v3.18.0...v3.19.0
-[v3.18.0]: https://github.com/TheAmirhosssein/goose/compare/v3.17.0...v3.18.0
-[v3.17.0]: https://github.com/TheAmirhosssein/goose/compare/v3.16.0...v3.17.0
-[v3.16.0]: https://github.com/TheAmirhosssein/goose/compare/v3.15.1...v3.16.0
-[v3.15.1]: https://github.com/TheAmirhosssein/goose/compare/v3.15.0...v3.15.1
-[v3.15.0]: https://github.com/TheAmirhosssein/goose/compare/v3.14.0...v3.15.0
-[v3.14.0]: https://github.com/TheAmirhosssein/goose/compare/v3.13.4...v3.14.0
-[v3.13.4]: https://github.com/TheAmirhosssein/goose/compare/v3.13.1...v3.13.4
-[v3.13.1]: https://github.com/TheAmirhosssein/goose/compare/v3.13.0...v3.13.1
-[v3.13.0]: https://github.com/TheAmirhosssein/goose/releases/tag/v3.13.0
+[Unreleased]: https://github.com/pressly/goose/compare/v3.24.3...HEAD
+[v3.24.3]: https://github.com/pressly/goose/compare/v3.24.2...v3.24.3
+[v3.24.2]: https://github.com/pressly/goose/compare/v3.24.1...v3.24.2
+[v3.24.1]: https://github.com/pressly/goose/compare/v3.24.0...v3.24.1
+[v3.24.0]: https://github.com/pressly/goose/compare/v3.23.1...v3.24.0
+[v3.23.1]: https://github.com/pressly/goose/compare/v3.23.0...v3.23.1
+[v3.23.0]: https://github.com/pressly/goose/compare/v3.22.1...v3.23.0
+[v3.22.1]: https://github.com/pressly/goose/compare/v3.22.0...v3.22.1
+[v3.22.0]: https://github.com/pressly/goose/compare/v3.21.1...v3.22.0
+[v3.21.1]: https://github.com/pressly/goose/compare/v3.20.0...v3.21.1
+[v3.21.0]: https://github.com/pressly/goose/compare/v3.20.0...v3.21.0
+[v3.20.0]: https://github.com/pressly/goose/compare/v3.19.2...v3.20.0
+[v3.19.2]: https://github.com/pressly/goose/compare/v3.19.1...v3.19.2
+[v3.19.1]: https://github.com/pressly/goose/compare/v3.19.0...v3.19.1
+[v3.19.0]: https://github.com/pressly/goose/compare/v3.18.0...v3.19.0
+[v3.18.0]: https://github.com/pressly/goose/compare/v3.17.0...v3.18.0
+[v3.17.0]: https://github.com/pressly/goose/compare/v3.16.0...v3.17.0
+[v3.16.0]: https://github.com/pressly/goose/compare/v3.15.1...v3.16.0
+[v3.15.1]: https://github.com/pressly/goose/compare/v3.15.0...v3.15.1
+[v3.15.0]: https://github.com/pressly/goose/compare/v3.14.0...v3.15.0
+[v3.14.0]: https://github.com/pressly/goose/compare/v3.13.4...v3.14.0
+[v3.13.4]: https://github.com/pressly/goose/compare/v3.13.1...v3.13.4
+[v3.13.1]: https://github.com/pressly/goose/compare/v3.13.0...v3.13.1
+[v3.13.0]: https://github.com/pressly/goose/releases/tag/v3.13.0
